@@ -17,6 +17,8 @@ jobs:
             -H "Content-Type: application/json" \
             -d "{
               \"workflow_run_id\": \"${{ github.run_id }}\",
+              \"workflow_name\": \"${{ github.workflow }}\",
+              \"workflow_run_number\": \"${{ github.run_number }}\",
               \"status\": \"failure\",
               \"duration\": \"${DURATION}s\"
             }"
