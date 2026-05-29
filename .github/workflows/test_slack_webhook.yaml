@@ -1,0 +1,22 @@
+name: Test Slack Webhook
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail intentionally
+        run: exit 1
+
+      - name: Notify Slack on failure
+        if: ${{ failure() }}
+        run: |
+          curl -X POST "${{ secrets.SLACK_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"workflow_run_id\": \"${{ github.run_id }}\",
+              \"status\": \"failure\",
+              \"duration\": \"${DURATION}s\"
+            }"
