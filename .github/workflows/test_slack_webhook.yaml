@@ -20,5 +20,5 @@ jobs:
               \"workflow_name\": \"${{ github.workflow }}\",
               \"workflow_run_number\": \"${{ github.run_number }}\",
               \"status\": \"failure\",
-              \"duration\": \"${DURATION}s\"
+              \"trigger\": \"${{ github.event_name }}\"
             }"
