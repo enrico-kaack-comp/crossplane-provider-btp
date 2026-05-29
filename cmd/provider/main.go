@@ -84,7 +84,7 @@ func main() {
 	btp.SetLogger(log)
 	btp.SetDebug(*debug)
 	log.Debug("New feature on main")
-	log.Debug("New fix for next version")
+	log.Debug("New fix for next version another main one for 0.5")
 
 	cfg, err := ctrl.GetConfig()
 	kingpin.FatalIfError(err, "Cannot get API server rest config")
